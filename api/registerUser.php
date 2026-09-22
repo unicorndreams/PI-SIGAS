@@ -101,14 +101,15 @@ try {
     ':type'     => $user_type,
   ]);
 
-  // TO DO Adicionar abaixo lógica de envio de e-mail para confirmação da conta
-  if ($result) {
+  // TO DO Adicionar abaixo confirmação da conta
+
+if ($result) {
     http_response_code(201);
     echo json_encode([
         'success'  => true,
         'mensagem' => 'Usuário cadastrado com sucesso!',
     ]);
-	sendEMail($pdo,"no-reply@sigas",$email,"SIGAS - Registration confirmation","token");
+	sendEMail($pdo,"no-reply@sigas",$email,"SIGAS - Registration confirmation",genToken(16));
     exit();
   }
 } catch (PDOException $e) {
@@ -117,4 +118,16 @@ try {
   exit();
 }
 
+function genToken($length){
+	$date=new DateTimeImmutable("now",new DateTimeZone("UTC"));
+	$token=$date->format("YmdHis");
+	$alphabet="ABCFHIJKLNOTUXYZ";
+
+	$a=($length>strlen($token))?$length-strlen($token):0;
+
+	while($a--)
+		$token.=substr($alphabet,rand(0,15),1);
+
+	return $token;
+}
 ?>
