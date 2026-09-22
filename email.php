@@ -36,8 +36,8 @@ foreach ($stmt as $row) {
 		$em_cnt++;
 		echo "<tr><td>".$em_cnt."</td></tr>";
 
-		echo "<tr><td>".$em_cnt."</td><td>".$row["id"]."</td><td>".$row["sent_at"]."</td><td style=\"max-width:50px;\" title=\"".$row["sender"]."\">".$row["sender"]."</td><td style=\"max-width:50px;\" title=\"".$row["recipient"]."\">".$row["recipient"]."</td><td style=\"max-width:50px;\" title=\"".$row["subject"]."\">".$row["subject"]."</td><td style=\"width:100px;\">".$row["message"]."</td><td>".$row["status"]."</td></tr>";/**/
-	}
+		echo "<tr><td>".$em_cnt."</td><td>".$row["id"]."</td><td>".$row["sent_at"]."</td><td style=\"max-width:50px;\" title=\"".$row["sender"]."\">".$row["sender"]."</td><td style=\"max-width:50px;\" title=\"".$row["recipient"]."\">".$row["recipient"]."</td><td style=\"max-width:50px;\" title=\"".$row["subject"]."\">".$row["subject"]."</td><td style=\"width:100px;\">".$row["message"]."</td><td>".$row["status"]."</td></tr>";
+	}/**/
 	echo "</table>";
 
 	if ($em_check==1)
